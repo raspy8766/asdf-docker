@@ -10,6 +10,7 @@ ENV PATH=$PATH:$ASDF_DIR/bin
 
 RUN useradd -ms /bin/bash -U devcontainer
 
+# Install utils as root user
 RUN <<EOF
   apt-get update
   apt-get install -y curl git unzip
@@ -18,18 +19,20 @@ EOF
 
 USER devcontainer
 
+# Update devcontainer user runtime config files
+RUN <<EOF
+  echo -e '\n. /opt/asdf/asdf.sh' >> ~/.bashrc
+  echo -e '\n. /opt/asdf/completions/asdf.bash' >> ~/.bashrc
+EOF
+
+WORKDIR /home/devcontainer
+
+COPY .tool-versions .tool-versions
+
 RUN <<EOF
     asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git
     asdf plugin add bun https://github.com/cometkim/asdf-bun
-    echo -e '\n. /opt/asdf/asdf.sh' >> ~/.bashrc
-    echo -e '\n. /opt/asdf/completions/asdf.bash' >> ~/.bashrc
+    asdf install
 EOF
-
-COPY .tool-versions /home/devcontainer/.tool-versions
-
-RUN asdf install
-
-# Set working directory to user's home directory
-WORKDIR /home/devcontainer
 
 CMD ["/bin/bash"]
