@@ -1,6 +1,6 @@
-# ASDF Base Docker Image
+# ASDF Docker
 
-ASDF Base Docker image
+A base Docker Image for ASDF
 
 ## Basics
 
