@@ -10,4 +10,4 @@ The [Dockerfile.example](.devcontainer/Dockerfile.example) is a good reference o
 
 ## Dev Container
 
-To provide a consistent IDE experience, you can also use your Docker image in a `devcontainer.json` configuration file. This enables support for both [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces).
+To provide a consistent IDE experience, you can also use your Docker image in a `devcontainer.json` configuration file. This enables support for both local [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) environments and [GitHub Codespaces](https://github.com/features/codespaces).
