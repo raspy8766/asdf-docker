@@ -1,0 +1,10 @@
+FROM asdf
+
+COPY .tool-versions .tool-versions
+
+RUN <<EOF
+    asdf plugin add awscli https://github.com/MetricMike/asdf-awscli.git
+    asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git
+    asdf plugin add bun https://github.com/cometkim/asdf-bun
+    asdf install
+EOF
