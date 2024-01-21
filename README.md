@@ -1,3 +1,13 @@
-# ASDF Docker Base Image
+# ASDF Base Docker Image
 
-The goal of this repo is to create a base ASDF Docker image that can be easily extended to install asdf plugins, and to use with either Dev Containers or [asdf GitHub Actions](https://github.com/asdf-vm/actions). Ideally this can be extended even further with VSCodes DevContainer 
+ASDF Base Docker image
+
+## Basics
+
+This Docker image is intended to be used as a base image. You can then create a light-weight Docker image to extend and customize it further by adding more utilities (e.g. `apt-get`), and most importantly define and install `asdf` plugins.
+
+The [Dockerfile.example](.devcontainer/Dockerfile.example) is a good reference on how to do this, as well as how to use a [.tool-versions](.devcontainer/.tool-versions) file for consistent version management.
+
+## Dev Container
+
+To provide a consistent IDE experience, you can also use your Docker image in a `devcontainer.json` configuration file. This enables support for both [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces).
